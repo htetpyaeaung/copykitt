@@ -11,6 +11,6 @@ subject = "coffee"
 prompt = f"Generate upbeat branding snippet for {subject}"
 
 response = openai.Completion.create(
-    engine="davinci", prompt=prompt, max_tokens=36)
+    engine="text-davinci-002", prompt=prompt, max_tokens=36)
 
 print(response)
