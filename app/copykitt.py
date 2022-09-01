@@ -15,23 +15,26 @@ def main():
     # 4. whether the argument is required or not
     parser.add_argument("--input", "-i", type=str, required=True)
     args = parser.parse_args()
+    # input came from parser add argument line
     user_input = args.input
 
     print(f"User Input:: {user_input}")
+    generate_branding_snippet(user_input)
     pass
 
 
-# # Load API Key into environment variable
-# openai.api_key = os.getenv(
-#     "OPENAI_API_KEY")
+def generate_branding_snippet(prompt: str):
+    # Load API Key into environment variable
+    openai.api_key = os.getenv(
+        "OPENAI_API_KEY")
 
-# subject = "coffee"
-# prompt = f"Generate upbeat branding snippet for {subject}"
+    enriched_prompt = f"Generate upbeat branding snippet for {prompt}"
 
-# response = openai.Completion.create(
-#     engine="text-davinci-002", prompt=prompt, max_tokens=36)
+    response = openai.Completion.create(
+        engine="text-davinci-002", prompt=enriched_prompt, max_tokens=36)
 
-# print(response)
+    print(response)
+
 
 if __name__ == "__main__":
     main()
