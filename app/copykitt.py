@@ -7,7 +7,10 @@ import openai
 openai.api_key = os.getenv(
     "OPENAI_API_KEY")
 
+subject = "coffee"
+prompt = f"Generate upbeat branding snippet for {subject}"
+
 response = openai.Completion.create(
-    engine="davinci", prompt="This is a test", max_tokens=5)
+    engine="davinci", prompt=prompt, max_tokens=36)
 
 print(response)
